@@ -1,0 +1,16 @@
+/.project
+target
+bower_components
+dist
+node_modules
+.settings
+.ruleset
+.classpath
+.pmd
+.project
+.checkstyle
+*.log
+.tmp
+.idea
+*.iml
+

@@ -1,0 +1,14 @@
+{
+  "name": "org.weidza.webbook_webbook-components",
+  "version": "0.0.1-SNAPSHOT",
+  "devDependencies": {
+    "del"             : "latest",
+    "gulp"            : "latest",
+    "gulp-concat"     : "latest",
+    "gulp-minify-css" : "latest",
+    "gulp-uglify"     : "latest",
+    "gulp-sourcemaps" : "latest",
+    "gulp-rename"     : "latest",
+    "gulp-bower"      : "latest"
+  }
+}

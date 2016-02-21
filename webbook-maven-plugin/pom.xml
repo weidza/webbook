@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.weidza.webbook</groupId>
         <artifactId>webbook-reactor</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -21,7 +21,6 @@
     -->
     <groupId>org.weidza.webbook</groupId>
     <artifactId>webbook-maven-plugins</artifactId>
-    <version>0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
 
@@ -65,6 +64,14 @@
             <groupId>org.apache.maven.plugin-tools</groupId>
             <artifactId>maven-plugin-annotations</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
 

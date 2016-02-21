@@ -1,0 +1,7 @@
+{
+  "name": "org.weidza.webbook_webbook-components",
+  "dependencies": {
+        "jquery"     : "1.12.0",
+        "x-tag-core" : "1.5.6"
+  }
+}
