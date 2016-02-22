@@ -3,6 +3,7 @@
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 var project = {
     source      : './src/main',
+    sourceTest  : './src/test',
     destination : './dist',
     artifactId  : "webbook-components"
 }
@@ -19,7 +20,9 @@ var tools = {
     uglify      : require('gulp-uglify'),
     sourcemaps  : require('gulp-sourcemaps'),
     rename      : require('gulp-rename'),
-    bower       : require('gulp-bower')
+    bower       : require('gulp-bower'),
+    connect     : require('gulp-connect'),
+    watch       : require('gulp-watch')
 }
 
 
@@ -97,6 +100,20 @@ gulp.task('minify-js', ['concat-js'], function() {
 
 gulp.task('minify', ['minify-css' , 'minify-js']);
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+gulp.task('startServer', function() {
+    tools.connect.server({
+        livereload: true,
+        root: ["."]
+    });
+});
+
+gulp.task('watch',function() {
+    gulp.watch(project.source+'/**/*.js', ['concat-js']);
+    gulp.watch(project.source+'/**/*.css', ['concat-css']);
+});
+
+
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // BUILDS
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -105,3 +122,5 @@ gulp.task('build', ['clean' , 'concat']);
 gulp.task('package', ['clean' , 'resolve','concat-vendors', 'concat','minify']);
 
 gulp.task('default', ['build']);
+
+gulp.task('serve', ['package','startServer', 'watch']);

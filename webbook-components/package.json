@@ -9,6 +9,8 @@
     "gulp-uglify"     : "latest",
     "gulp-sourcemaps" : "latest",
     "gulp-rename"     : "latest",
-    "gulp-bower"      : "latest"
+    "gulp-bower"      : "latest",
+    "gulp-connect"    : "latest",
+    "gulp-watch"      : "latest"
   }
 }
