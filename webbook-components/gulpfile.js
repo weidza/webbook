@@ -56,6 +56,10 @@ gulp.task('concat-css', function() {
 gulp.task('concat-js', function() {
     return gulp.src([
         project.source+'/core/core.js',
+        project.source+'/core/core-asserts.js',
+        project.source+'/core/core-check.js',
+        project.source+'/core/core-services.js',
+        project.source+'/core/core-components.js',
         project.source+'/components/**/*.js'
     ])
     .pipe(tools.concat(project.artifactId+'.js'))
@@ -103,7 +107,7 @@ gulp.task('minify', ['minify-css' , 'minify-js']);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 gulp.task('startServer', function() {
     tools.connect.server({
-        livereload: true,
+        livereload: false,
         root: ["."]
     });
 });
