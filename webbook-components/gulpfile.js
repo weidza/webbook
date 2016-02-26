@@ -60,7 +60,8 @@ gulp.task('concat-js', function() {
         project.source+'/core/core-check.js',
         project.source+'/core/core-services.js',
         project.source+'/core/core-components.js',
-        project.source+'/components/**/*.js'
+        project.source+'/components/**/*-compo.js',
+        project.source+'/components/**/*-element.js',
     ])
     .pipe(tools.concat(project.artifactId+'.js'))
     .pipe(gulp.dest(project.destination));;
