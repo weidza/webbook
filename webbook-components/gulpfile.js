@@ -73,7 +73,7 @@ gulp.task('concat-vendors', function() {
         project.destination+'/lib/x-tag-core/**/x-tag-core.min.js'
     ])
     .pipe(tools.concat('vendors.js'))
-    .pipe(gulp.dest(project.destination));;
+    .pipe(gulp.dest(project.destination));
 });
 
 gulp.task('concat', ['concat-css' , 'concat-js']);
