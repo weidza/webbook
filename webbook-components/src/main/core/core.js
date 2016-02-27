@@ -17,3 +17,4 @@ org.weidza.webBook._innerValues = {
     componentsIds : {}
 
 };
+

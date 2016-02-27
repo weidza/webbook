@@ -56,6 +56,7 @@ gulp.task('concat-css', function() {
 gulp.task('concat-js', function() {
     return gulp.src([
         project.source+'/core/core.js',
+        project.source+'/core/core-logger.js',
         project.source+'/core/core-asserts.js',
         project.source+'/core/core-check.js',
         project.source+'/core/core-services.js',
