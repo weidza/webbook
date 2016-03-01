@@ -24,6 +24,41 @@ body{
     border-color: #cccccc;
 }
 
-.webbook-bloc .webbook-bloc-content{
+.webbook-bloc.debug{
+    border-color: #999999;
+    background-color:#dcdcdc;
+}
+.webbook-bloc.debug .webbook-bloc-content-title{
+    border-color: #999999;
+}
+.webbook-bloc.info{
+    border-color: #5bc0de;
+    background-color:#d4eef6;
+}
+.webbook-bloc.info .webbook-bloc-content-title{
+    border-color:#5bc0de;
+}
 
+.webbook-bloc.warn{
+    border-color: #f0ad4e;
+    background-color:#fbead1;
+}
+.webbook-bloc.warn .webbook-bloc-content-title{
+    border-color:#f0ad4e;
+}
+
+.webbook-bloc.error{
+    border-color: #d9534f;
+    background-color:#ffdcdb;
+}
+.webbook-bloc.error .webbook-bloc-content-title{
+    border-color:#d9534f;
+}
+
+.webbook-bloc.help{
+    border-color: #5cb85c;
+    background-color:#d5edd5;
+}
+.webbook-bloc.help .webbook-bloc-content-title{
+    border-color:#5cb85c;
 }

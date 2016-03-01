@@ -14,3 +14,9 @@
     width: 85%;
     float: left;
 }
+
+.webbook-bloc .webbook-bloc-content-title{
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
