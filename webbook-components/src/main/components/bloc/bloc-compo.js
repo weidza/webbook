@@ -82,7 +82,7 @@ org.weidza.webBook.components.Bloc =  {
 
         if(org.weidza.check.notEmpty(this.options.title)){
             var title= org.weidza.rendering.createNode('div','webbook-bloc-content-title');
-                title.text(this.options.title);
+                title.html(this.options.title);
 
             contentGrp.append(title);
         }
