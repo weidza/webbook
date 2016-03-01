@@ -1,3 +1,65 @@
 h1{
     font-weight: bold;
 }
+
+h2{
+    font-weight : bold;
+    border-bottom : 2px solid;
+    font-size:225%;
+}
+h3{
+    font-size: 190%;
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
+h4{
+    font-size: 160%;
+    font-weight: bold;
+}
+h5{
+    font-size: 130%;
+    font-style: italic;
+}
+h6{
+    font-size: 115%;
+    font-style: italic;
+}
+
+.webbook-clean{
+    clear: both;
+}
+
+
+
+.documentation table{
+    width: 100%;
+    margin-bottom: 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.documentation table caption{
+    border: 1px solid #cccccc;
+    border-left:none;
+    border-right:none;
+    padding:0;
+    text-align:center;
+    background-color: #e8e8e8;
+}
+
+table tbody{
+    border: 2px solid #cccccc;
+    border-right:none;
+    border-left:none;
+}
+
+table th,
+table td{
+    text-align: center;
+    padding:0.25em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+table tr{
+    border-bottom:1px solid #ccc;
+}

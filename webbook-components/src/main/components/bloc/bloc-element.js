@@ -14,9 +14,10 @@ if(!xtag.tags['w-bloc']) {
                 var uid = org.weidza.services.generateId("bloc");
 
                 var options = {
+                    id    : uid,
                     title : this.title,
                     level : this.level,
-                    xtag : $(this)
+                    xtag  : $(this)
                 };
 
                 window[uid]= Object.create(org.weidza.webBook.components.Bloc);

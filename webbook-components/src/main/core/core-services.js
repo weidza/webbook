@@ -32,6 +32,20 @@ org.weidza.services = {
         }
 
         return  result.join('').replace(/\W/g, '_');
+    },
+
+    defaultValueEmpty : function(value){
+        return org.weidza.services.defaultValue(value,"");
+    },
+
+    defaultValue : function(value, defaultValue){
+        var isEmpty = value===undefined;
+
+        if (!isEmpty && (typeof value === 'string' || value instanceof String)){
+            isEmpty = "" === value;
+        }
+
+        return isEmpty?defaultValue:value;
     }
 
 };

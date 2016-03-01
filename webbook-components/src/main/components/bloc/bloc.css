@@ -1,0 +1,16 @@
+.webbook-bloc{
+    border:2px solid;
+    border-radius: 4px;
+    margin-top:1em;
+    margin-bottom:1em;
+    padding: 1em;
+}
+.webbook-bloc .webbook-bloc-icon-grp{
+    width: 10%;
+    float: left;
+}
+
+.webbook-bloc .webbook-bloc-content{
+    width: 85%;
+    float: left;
+}

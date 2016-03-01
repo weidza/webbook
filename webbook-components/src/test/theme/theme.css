@@ -1,0 +1,29 @@
+h1, h2, h3, h4, h5, h6{
+    color : #2d2d2d;
+}
+
+body{
+    background-color:#e8e8e8;
+}
+
+
+/*********************************************************
+* webbook-document
+*********************************************************/
+.webbook-document{
+    border: 1px solid #cfcfcf;
+    background-color:#ffffff;
+}
+
+
+
+/*********************************************************
+* webbook-bloc
+*********************************************************/
+.webbook-bloc{
+    border-color: #cccccc;
+}
+
+.webbook-bloc .webbook-bloc-content{
+
+}
