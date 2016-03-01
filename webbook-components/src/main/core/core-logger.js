@@ -2,7 +2,7 @@
 // LOGGER API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-org.weidza.webBook.logger={
+org.weidza.logger={
     levels:{
         trace : {level :1,title : "TRACE"},
         debug : {level :2,title : "DEBUG"},
@@ -22,22 +22,22 @@ org.weidza.webBook.logger={
         },
 
         trace : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.trace,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.trace,this.option.name,message, values);
         },
         debug : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.debug,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.debug,this.option.name,message, values);
         },
         info  : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.info,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.info,this.option.name,message, values);
         },
         warn  : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.warn,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.warn,this.option.name,message, values);
         },
         error : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.error,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.error,this.option.name,message, values);
         },
         fatal : function(message, values){
-            org.weidza.webBook.logger._processAppender(org.weidza.webBook.logger.levels.fatal,this.option.name,message, values);
+            org.weidza.logger._processAppender(org.weidza.logger.levels.fatal,this.option.name,message, values);
         }
 
     } ,
@@ -122,7 +122,7 @@ org.weidza.webBook.logger={
         }
         if(this._appenders.length===0){
 
-            this._appenders.push(Object.create(org.weidza.webBook.logger._DefaultAppender));
+            this._appenders.push(Object.create(org.weidza.logger._DefaultAppender));
         }
     },
 
@@ -132,7 +132,7 @@ org.weidza.webBook.logger={
             throw  "Logger name mustn't be null!";
         }
         if(this._findRegistredIndex(loggerName)===-1){
-            this._registredLogger[loggerName]= Object.create(org.weidza.webBook.logger._Logger);
+            this._registredLogger[loggerName]= Object.create(org.weidza.logger._Logger);
             this._registredLogger[loggerName].init(loggerName);
             result = this._registredLogger[loggerName];
 

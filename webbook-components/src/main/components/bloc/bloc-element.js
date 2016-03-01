@@ -11,7 +11,7 @@ if(!xtag.tags['w-bloc']) {
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.webBook.services.generateId("bloc");
+                var uid = org.weidza.services.generateId("bloc");
 
                 var options = {
                     title : this.title,

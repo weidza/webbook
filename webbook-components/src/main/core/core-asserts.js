@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // ASSERTS API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.asserts= {
+org.weidza.asserts= {
     notNull: function (value, message) {
         if (value === undefined || value === null) {
             throw  message;

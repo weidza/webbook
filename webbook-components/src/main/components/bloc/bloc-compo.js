@@ -2,7 +2,7 @@
 // org.weidza.webBook.components.Include
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 org.weidza.webBook.components.Bloc =  {
-    logger : org.weidza.webBook.logger.factory("org.weidza.webBook.components.Bloc"),
+    logger : org.weidza.logger.factory("org.weidza.webBook.components.Bloc"),
     options : {
         title   : "",
         level   : "",
@@ -18,15 +18,8 @@ org.weidza.webBook.components.Bloc =  {
     },
 
     init: function(options) {
-        this.logger.trace("simple trace message");
-        this.logger.debug("simple debug message");
-        this.logger.info("fooo : {0},titi : {1}", ["AAA","BBBB"]);
-        this.logger.warn("simple warn message");
-        this.logger.error("simple error message");
-        this.logger.fatal("simple fatal message");
 
-
-        org.weidza.webBook.asserts.notNull(options, "bloc option mustn't be null!");
+        org.weidza.asserts.notNull(options, "bloc option mustn't be null!");
         this.options.title = options.title===undefined?"":options.title;
         this.options.level = options.level===undefined?"":options.level;
         this.options.images= options.images===undefined?this.options.images:options.images;
@@ -47,8 +40,10 @@ org.weidza.webBook.components.Bloc =  {
             }
         }
 
-        if(org.weidza.webBook.check.isNull(levelImgKey)){
-
+        if(org.weidza.check.isNull(levelImgKey)){
+            this.options.level= "info" ;
+        }else{
+            this.options.level= levelImgKey ;
         }
     },
 

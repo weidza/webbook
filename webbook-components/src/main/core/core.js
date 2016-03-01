@@ -7,13 +7,13 @@ if(org.weidza===undefined){
     org.weidza={};
 }
 
-org.weidza.webBook = {};
+
 
 
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // INNERS VALUES
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook._innerValues = {
+org.weidza._innerValues = {
     componentsIds : {}
 
 };

@@ -1,16 +1,16 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // CORE SERVICE
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.services = {
+org.weidza.services = {
 
     generateId : function (componentName){
-        var index = org.weidza.webBook._innerValues.componentsIds[componentName];
+        var index = org.weidza._innerValues.componentsIds[componentName];
 
         if(index===undefined ||index===null){
             index =0;
         }
         index ++;
-        org.weidza.webBook._innerValues.componentsIds[componentName] =index;
+        org.weidza._innerValues.componentsIds[componentName] =index;
         return componentName+"_"+index;
     },
 

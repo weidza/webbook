@@ -8,7 +8,7 @@ if(!xtag.tags['w-include']) {
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.webBook.services.generateId("include");
+                var uid = org.weidza.services.generateId("include");
 
                 var options = {
                     id:uid,

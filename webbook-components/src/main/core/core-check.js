@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // CHECK API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.check = {
+org.weidza.check = {
     /**
      * Allow to check if value is null
      * @param value
@@ -16,7 +16,7 @@ org.weidza.webBook.check = {
      * @returns true if value isn't null
      */
     isNotNull: function (value) {
-        return !org.weidza.webBook.check.isNull(value);
+        return !org.weidza.check.isNull(value);
     },
 
 
@@ -26,8 +26,8 @@ org.weidza.webBook.check = {
 
     indexOf : function(value, list, functionEquals){
         var result = -1;
-        if(org.weidza.webBook.check.isNotNull(list)){
-            var useFunction = org.weidza.webBook.check.isNotNull(functionEquals);
+        if(org.weidza.check.isNotNull(list)){
+            var useFunction = org.weidza.check.isNotNull(functionEquals);
             for(var i=list.length-1; i>=0;i--){
 
                 var same = useFunction ? functionEquals(list[i],value) :list[i]===value;
@@ -41,6 +41,6 @@ org.weidza.webBook.check = {
     },
 
     contains : function(value, list, functionEquals){
-        return org.weidza.webBook.check.indexOf(value, list,functionEquals) != -1;
+        return org.weidza.check.indexOf(value, list,functionEquals) != -1;
     }
 };
