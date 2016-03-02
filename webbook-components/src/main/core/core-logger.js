@@ -13,32 +13,34 @@ org.weidza.logger={
     },
     rootLevel : null,
 
-    _Logger : {
-        option : {
-            name : null
-        },
-        init: function(name){
-            this.option.name = name;
-        },
+    _Logger : function(loggerName){
+        this.option = {
+            name : loggerName
+        };
 
-        trace : function(message, values){
+        this.trace = function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.trace,this.option.name,message, values);
-        },
-        debug : function(message, values){
+        };
+
+        this.debug =function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.debug,this.option.name,message, values);
-        },
-        info  : function(message, values){
+        };
+
+        this.info = function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.info,this.option.name,message, values);
-        },
-        warn  : function(message, values){
+        };
+
+        this.warn = function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.warn,this.option.name,message, values);
-        },
-        error : function(message, values){
+        };
+
+        this.error = function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.error,this.option.name,message, values);
-        },
-        fatal : function(message, values){
+        };
+
+        this.fatal = function(message, values){
             org.weidza.logger._processAppender(org.weidza.logger.levels.fatal,this.option.name,message, values);
-        }
+        };
 
     } ,
 
@@ -127,20 +129,18 @@ org.weidza.logger={
     },
 
     factory : function(loggerName) {
-        var result = null;
+
         if (loggerName === undefined || loggerName === null) {
             throw  "Logger name mustn't be null!";
         }
         if(this._findRegistredIndex(loggerName)===-1){
-            this._registredLogger[loggerName]= Object.create(org.weidza.logger._Logger);
-            this._registredLogger[loggerName].init(loggerName);
-            result = this._registredLogger[loggerName];
+            this._registredLogger[loggerName]= new org.weidza.logger._Logger(loggerName);
 
             this._createDefaultAppenders();
         }else{
             throw  'Logger "'+loggerName+'" already exists!';
         }
-        return result;
+        return this._registredLogger[loggerName];
     }
 
 };

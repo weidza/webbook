@@ -2,7 +2,6 @@
 // org.weidza.webBook.components.Include
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 org.weidza.webBook.components.Bloc =  {
-    logger : org.weidza.logger.factory("org.weidza.webBook.components.Bloc"),
     options : {
         id      : "",
         title   : "",

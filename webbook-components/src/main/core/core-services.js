@@ -38,15 +38,39 @@ org.weidza.services = {
         return org.weidza.services.defaultValue(value,"");
     },
 
-    defaultValue : function(value, defaultValue){
-        var isEmpty = value===undefined;
+    defaultValue : function(value, defaultValue) {
+        var isEmpty = value === undefined;
 
-        if (!isEmpty && (typeof value === 'string' || value instanceof String)){
+        if (!isEmpty && (typeof value === 'string' || value instanceof String)) {
             isEmpty = "" === value;
         }
 
-        return isEmpty?defaultValue:value;
+        return isEmpty ? defaultValue : value;
+    },
+
+    getParent : function(nodeName,currentNode){
+        org.weidza.asserts.notNull(nodeName, "can't search node parent without this name!")
+        return this._processGetParent(nodeName.toUpperCase(),currentNode);
+    },
+
+    _processGetParent : function(nodeName,currentNode){
+        var result = null;
+
+        var parent = null;
+        if(currentNode!==null){
+            parent = currentNode.context===undefined?currentNode.parentNode:currentNode.context.parentNode ;
+        }
+        if(parent!==null){
+            if(nodeName===parent.nodeName){
+                result = parent;
+            }else{
+                result = this._processGetParent(nodeName,parent);
+            }
+        }
+        return result;
     }
+
+
 
 };
 

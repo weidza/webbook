@@ -19,6 +19,7 @@ org.weidza.webBook.components.Section =  {
         this.options.id     = options.id;
         this.options.xtag   = options.xtag;
         this.options.title  = options.title;
+        this.options.parent = options.parent;
         this._render();
     },
 
@@ -41,7 +42,7 @@ org.weidza.webBook.components.Section =  {
         var titleGrp = org.weidza.rendering.createNode('div','webbook-section-title');
         var level = this._calcLevel();
         var title = org.weidza.rendering.createNode('h'+level);
-            title.text(this.options.title);
+            title.text(this.options.title + "("+this.options.parent+")");
 
         titleGrp.append(title);
         compo.append(titleGrp);

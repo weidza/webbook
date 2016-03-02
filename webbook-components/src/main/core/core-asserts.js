@@ -6,20 +6,33 @@ org.weidza.asserts= {
 
     notNull: function (value, message) {
         if (value === undefined || value === null) {
-            org.weidza.asserts._LOGGER.error(message);
+            this.error(message);
             throw  message;
         }
     },
     isFalse : function (condition, message){
         if(condition){
-            org.weidza.asserts._LOGGER.error(message);
+            this.error(message);
             throw  message;
         }
     },
     isTrue : function (condition, message){
         if(!condition){
-            org.weidza.asserts._LOGGER.error(message);
+            this.error(message);
             throw  message;
         }
+    },
+    isString : function (value){
+        this.notNull(value,"can't verify object type with null object!");
+
+
+        var isString = ((typeof value) === 'string') || (value instanceof String);
+
+        if(!isString ){
+            var message = "value isn't String value ("+(typeof value)+")";
+            this.error(message);
+            throw  message;
+        }
+
     }
 };
