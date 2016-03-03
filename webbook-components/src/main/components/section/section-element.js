@@ -1,4 +1,3 @@
-var LOGGER = org.weidza.logger.factory("w-section");
 if(!xtag.tags['w-section']) {
 
     xtag.register('w-section', {
@@ -12,20 +11,20 @@ if(!xtag.tags['w-section']) {
             }
         },
         lifecycle: {
-            created: function(){
-
-            },
             inserted: function() {
-                LOGGER.info('insert :'+this.title);
                 var jNode = $(this);
                 var uid = org.weidza.services.normalizeId(this.title);
-
-                var parent = org.weidza.services.getParent('w-section',jNode);
+                var parentNode = org.weidza.services.getParent('w-section',jNode);
                 var currentParent = null;
-                if(parent !==null){
-                    currentParent= org.weidza.services.normalizeId(parent.attributes["title"].value);
-                }
 
+                if(org.weidza.check.isNotNull(parentNode)){
+                    var parentId = org.weidza.services.normalizeId(parentNode.attributes['title'].value);
+                    currentParent = org.weidza.webBook.services.findSection(parentId);
+                    org.weidza.asserts.notNull(currentParent, "error parent section isn't present in registred sections ("+parentId+")");
+                    if(currentParent.getId()===uid){
+                        throw "error parent is same node!";
+                    }
+                }
 
                 var options = {
                     id    : uid,
@@ -34,11 +33,9 @@ if(!xtag.tags['w-section']) {
                     xtag  : jNode
                 };
 
+                var newSection = new org.weidza.webBook.components.Section(options);
 
-                window[uid]= Object.create(org.weidza.webBook.components.Section);
-                window[uid].init(options);
-                console.log(currentParent+":"+uid);
-
+                org.weidza.webBook.services.registerSection(newSection);
             }
         }
     });

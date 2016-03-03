@@ -5,33 +5,33 @@ org.weidza.webBook = {};
 org.weidza.webBook.components = {};
 
 org.weidza.webBook._innerValues = {
-    currentSection:null
+    sections:[]
 };
-org.weidza.webBook.services = {
 
-    getCurrentSection : function(){
-        return org.weidza.webBook._innerValues.currentSection;
+org.weidza.webBook.services= {
+
+    getAllSections : function(){
+        return org.weidza.webBook._innerValues.sections;
     },
 
-    setCurrentSection: function(value){
-        org.weidza.webBook._innerValues.currentSection = value;
+    registerSection : function(node){
+        org.weidza.asserts.notNull(node,"can't append null object to sections");
+        org.weidza.webBook._innerValues.sections.push(node);
     },
 
-    appendCurrentSection : function(value){
-        org.weidza.asserts.notNull(value,"can't append null to section path");
-        org.weidza.asserts.isString(value);
-
-        var currentPath = this.getCurrentSection();
-
-        if(org.weidza.check.isNull(currentPath)){
-            currentPath = value;
-        }else{
-            currentPath = currentPath + ":"+value;
+    findSection : function(uid){
+        org.weidza.asserts.notNull(uid,"can't section with null uid parameter");
+        var result = null;
+        var size = org.weidza.webBook._innerValues.sections.length;
+        for(var i=0;i<size;i++){
+            var item = org.weidza.webBook._innerValues.sections[i];
+            //TODO: remove second condition
+            if(item.getFullId()===uid || item.getId()===uid ){
+                result = item;
+                break;
+            }
         }
-
-        this.setCurrentSection(currentPath);
+        return result;
     }
-
-
 
 };

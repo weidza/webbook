@@ -6,19 +6,19 @@ org.weidza.asserts= {
 
     notNull: function (value, message) {
         if (value === undefined || value === null) {
-            this.error(message);
+            this._LOGGER.error(message);
             throw  message;
         }
     },
     isFalse : function (condition, message){
         if(condition){
-            this.error(message);
+            this._LOGGER.error(message);
             throw  message;
         }
     },
     isTrue : function (condition, message){
         if(!condition){
-            this.error(message);
+            this._LOGGER.error(message);
             throw  message;
         }
     },
@@ -30,7 +30,7 @@ org.weidza.asserts= {
 
         if(!isString ){
             var message = "value isn't String value ("+(typeof value)+")";
-            this.error(message);
+            this._LOGGER.error(message);
             throw  message;
         }
 

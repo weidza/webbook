@@ -137,8 +137,6 @@ org.weidza.logger={
             this._registredLogger[loggerName]= new org.weidza.logger._Logger(loggerName);
 
             this._createDefaultAppenders();
-        }else{
-            throw  'Logger "'+loggerName+'" already exists!';
         }
         return this._registredLogger[loggerName];
     }
