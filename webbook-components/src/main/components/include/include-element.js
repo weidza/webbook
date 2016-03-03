@@ -16,8 +16,7 @@ if(!xtag.tags['w-include']) {
                     xtag : $(this)
                 };
 
-                window[uid]= Object.create(org.weidza.webBook.components.Include);
-                window[uid].init(options);
+                window[uid]= new org.weidza.webBook.components.Include(options);
             }
         }
     });

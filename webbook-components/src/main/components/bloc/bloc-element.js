@@ -20,8 +20,7 @@ if(!xtag.tags['w-bloc']) {
                     xtag  : $(this)
                 };
 
-                window[uid]= Object.create(org.weidza.webBook.components.Bloc);
-                window[uid].init(options);
+                window[uid]= new org.weidza.webBook.components.Bloc(options);
             }
         }
     });

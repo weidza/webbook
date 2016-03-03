@@ -12,8 +12,7 @@ if(!xtag.tags['w-document']) {
                     xtag : $(this)
                 };
 
-                window[uid]= Object.create(org.weidza.webBook.components.Document);
-                window[uid].init(options);
+                window[uid]= new org.weidza.webBook.components.Document(options);
             }
         }
     });
