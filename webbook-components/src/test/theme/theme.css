@@ -62,3 +62,11 @@ body{
 .webbook-bloc.help .webbook-bloc-content-title{
     border-color:#5cb85c;
 }
+
+
+/*********************************************************
+* webbook-table
+*********************************************************/
+.webbook-table  tr.even  {
+    background-color : #f5fbff;
+}

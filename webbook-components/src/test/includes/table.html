@@ -3,6 +3,60 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
 <w-section title="Table Component">
 
+    <w-table title="My table component"
+             caption="Allow to display tabular data"
+             columns="Pellentesque;Volutpat;Tempus"
+             columnClasses="defaut;numer;time">
+
+        <w-row>
+            <w-cell>Enim metus faucibus</w-cell>
+            <w-cell>15</w-cell>
+            <w-cell>256</w-cell>
+        </w-row>
+
+        <w-row>
+            <w-cell>Vulputate nulla non mollis</w-cell>
+            <w-cell>25</w-cell>
+            <w-cell>512</w-cell>
+        </w-row>
+
+        <w-row>
+            <w-cell>Lobortis imperdiet ipsum</w-cell>
+            <w-cell>35</w-cell>
+            <w-cell>1024</w-cell>
+        </w-row>
+    </w-table>
 
 
+
+    <w-table title="Table with values component"
+             caption="Allow to display tabular data with JavaScript function"
+             columns="Pellentesque;Volutpat;Tempus"
+             column_classes="defaut;numer;time"
+             loader="valueLoaderFunction"/>
+
+    <script type="text/javascript">
+        function valueLoaderFunction(){
+            return [
+                ["Lorem"       ,  12   ,    15],
+                ["consectetur" ,  34   ,  5456],
+                ["adipiscing"  ,  56   ,   159],
+                ["Curabitur"   ,  78   ,   758],
+                ["venenatis"   ,  910  ,    74],
+                ["Etiam"       ,  1112 ,   249],
+                ["tempor"      ,  1314 ,   120],
+                ["Nullam"      ,  1516 ,   257],
+                ["egestas"     ,  1718 ,   759],
+                ["velit"       ,  1920 ,   147],
+                ["laoreet"     ,  2122 ,   856],
+                ["interdum."   ,  2324 ,   598],
+                ["malesuada"   ,  2526 ,  1234],
+                ["dignissim"   ,  2728 ,  4587],
+                ["dolor"       ,  2930 ,  7957],
+                ["vestibulum"  ,  3132 ,  7856],
+                ["bibendum"    ,  3334 ,  9856],
+                ["imperdiet"   ,  3536 ,  1597],
+            ];
+        }
+    </script>
 </w-section>

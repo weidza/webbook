@@ -22,17 +22,27 @@ org.weidza.asserts= {
             throw  message;
         }
     },
-    isString : function (value){
-        this.notNull(value,"can't verify object type with null object!");
+    type:{
+        isString : function (value){
+            org.weidza.asserts.notNull(value,"can't verify object type with null object!");
 
+            var isString = ((typeof value) === 'string') || (value instanceof String);
+            this._validate(isString,value,"String");
 
-        var isString = ((typeof value) === 'string') || (value instanceof String);
+        },
+        isArray : function (value){
+            org.weidza.asserts.notNull(value,"can't verify object type with null object!");
+            var isArray = ((typeof value) === 'array') || (value instanceof Array);
+            this._validate(isArray,value,"Array");
 
-        if(!isString ){
-            var message = "value isn't String value ("+(typeof value)+")";
-            this._LOGGER.error(message);
-            throw  message;
+        },
+        _validate : function(condition, value, type){
+            if(!condition){
+                var message = ["value isn't ",type," value (",(typeof value),")"].join("");
+                this._LOGGER.error(message);
+                throw  message;
+            }
         }
-
     }
+
 };
