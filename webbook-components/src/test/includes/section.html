@@ -26,21 +26,19 @@
         </w-section>
     </w-section>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Attributes</th>
-            <th>Type</th>
-            <th>Values</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>title</td>
-            <td>String</td>
-            <td>""</td>
-        </tr>
-        </tbody>
-    </table>
+
+    <w-table caption="Component attributes"
+             columns="Attribute;Type;Default value"
+             loader="sectionComponentAttributes"/>
+            <script type="text/javascript">
+                function sectionComponentAttributes(){
+                    return [
+                        ["id"              ,  "String"    ,    "normalize from title"],
+                        ["title"           ,  "String"    ,    "" ],
+                    ];
+                }
+            </script>
+
+
 </w-section>
 

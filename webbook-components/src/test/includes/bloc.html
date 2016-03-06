@@ -61,26 +61,16 @@
     </w-bloc>
 
 
-    <table>
-        <thead>
-        <tr>
-            <th>Attributes</th>
-            <th>Type</th>
-            <th>Values</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>title</td>
-                <td>String</td>
-                <td>""</td>
-            </tr>
+    <w-table caption="Component attributes"
+             columns="Attribute;Type;Default value"
+             loader="blocComponentAttributes"/>
+             <script type="text/javascript">
+             function blocComponentAttributes(){
+                    return [
+                        ["title"     ,  "String"    ,    "normalize from title"],
+                        ["level"     ,  "String"    ,    '"debug" | "info" | "warn" | "error" | "help"'],
+                    ];
+             }
+             </script>
 
-            <tr>
-                <td>level</td>
-                <td>String</td>
-                <td>"debug" | "info" | "warn" | "error" | "help"</td>
-            </tr>
-        </tbody>
-    </table>
 </w-section>

@@ -1,0 +1,14 @@
+.webbook-table .webbook-table-title{
+    border: 1px solid;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -1px;
+}
+.webbook-table caption{
+    font-style: italic;
+    font-size: 0.8em;
+}
+

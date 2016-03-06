@@ -6,7 +6,6 @@ body{
     background-color:#e8e8e8;
 }
 
-
 /*********************************************************
 * webbook-document
 *********************************************************/
@@ -14,7 +13,6 @@ body{
     border: 1px solid #cfcfcf;
     background-color:#ffffff;
 }
-
 
 
 /*********************************************************
@@ -69,4 +67,13 @@ body{
 *********************************************************/
 .webbook-table  tr.even  {
     background-color : #f5fbff;
+}
+
+.webbook-table .webbook-table-title{
+    background-color: #777777;
+    color: #ffffff;
+}
+
+.webbook-table caption{
+    color: #43444a;
 }

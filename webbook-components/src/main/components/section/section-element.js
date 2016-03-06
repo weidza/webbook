@@ -3,17 +3,25 @@ if(!xtag.tags['w-section']) {
     xtag.register('w-section', {
 
         accessors: {
-            title: {
+            id: {
                 attribute: {}
             },
-            level: {
+            title: {
                 attribute: {}
             }
         },
         lifecycle: {
             inserted: function() {
                 var jNode = $(this);
-                var uid = org.weidza.services.normalizeId(this.title);
+
+                org.weidza.asserts.notNull(this.title,"Section title mustn't be null!");
+                var uid = null;
+                if(org.weidza.check.isNull(this.id)){
+                    uid = org.weidza.services.normalizeId(this.title);
+                }else{
+                    uid = this.id;
+                }
+
                 var parentNode = org.weidza.services.getParent('w-section',jNode);
                 var currentParent = null;
 

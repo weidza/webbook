@@ -78,7 +78,43 @@ org.weidza.webBook.components.Table.prototype._updateValues = function () {
 
 
 org.weidza.webBook.components.Table.prototype._updateFromTags = function () {
-    //TODO :implement
+    var result = [];
+    var children = this.options.xtag.children();
+
+    if(org.weidza.check.isNotNull(children)){
+        var nbChildren = children.length;
+        for(var i=0; i<nbChildren;i++){
+            var child = children[i];
+            if(child.nodeName === "W-ROW"){
+                result.push(this._extractRowInformations(child));
+            }
+        }
+    }
+
+    this._innerValues.data = result;
+};
+
+org.weidza.webBook.components.Table.prototype._extractRowInformations = function (child) {
+    var result = [];
+
+    if(org.weidza.check.isNotNull(child.childNodes)){
+        var nbChildren = child.childNodes.length;
+        for(var i =0;i<nbChildren; i++){
+            var cellNode = child.childNodes[i];
+            if(cellNode.nodeName === "W-CELL"){
+                var cell = this._extractCellInformation(cellNode);
+                if(org.weidza.check.isNotNull(cell)){
+                    result.push(cell);
+                }
+            }
+        }
+    }
+    org.weidza.asserts.isFalse(result.length>this._innerValues.nbColumn,"error too much data for row :"+child);
+    return result;
+};
+
+org.weidza.webBook.components.Table.prototype._extractCellInformation = function (cell) {
+    return cell.innerHTML;
 };
 
 org.weidza.webBook.components.Table.prototype._updateFromFunction = function () {
@@ -99,10 +135,33 @@ org.weidza.webBook.components.Table.prototype._updateFromFunction = function () 
 // render
 // -----------------------------------------------------------------------------
 org.weidza.webBook.components.Table.prototype._render = function () {
-    var compo = org.weidza.rendering.createNode('table', 'webbook-table', this.options.id);
-    compo.append(this._renderHeader());
-    compo.append(this._renderContent());
+    var compo = org.weidza.rendering.createNode('div', 'webbook-table', this.options.id);
+    var table = org.weidza.rendering.createNode('table');
+
+    if(org.weidza.check.isNotNull(this.options.title)){
+        compo.append(this._renderTitle());
+    }
+    if(org.weidza.check.isNotNull(this.options.caption)){
+        table.append(this._renderCaption());
+    }
+    table.append(this._renderHeader());
+    table.append(this._renderContent());
+
+    compo.append(table);
+    this.options.xtag.html("");
     this.options.xtag.append(compo);
+};
+
+org.weidza.webBook.components.Table.prototype._renderTitle = function () {
+    var result = org.weidza.rendering.createNode('div', 'webbook-table-title');
+        result.text(this.options.title);
+    return result;
+};
+
+org.weidza.webBook.components.Table.prototype._renderCaption = function () {
+    var result = org.weidza.rendering.createNode('caption');
+        result.text(this.options.caption);
+    return result;
 };
 
 org.weidza.webBook.components.Table.prototype._renderHeader = function () {
@@ -151,7 +210,7 @@ org.weidza.webBook.components.Table.prototype._renderDataRow = function (rowInde
 
 org.weidza.webBook.components.Table.prototype._renderDataCell = function (data, cellIndex) {
     var result = org.weidza.rendering.createNode('td', this._defineCellClass(cellIndex));
-        result.text(data);
+        result.html(data);
     return result;
 }
 
