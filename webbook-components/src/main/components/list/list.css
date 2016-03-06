@@ -1,3 +1,42 @@
-.weidza-webbook-list{
+.webbook-list{
+    margin: 0;
+    padding: 0;
+    margin-left:1.5em ;
+    margin-bottom:1.5em ;
 
+}
+.webbook-list li{
+    margin-left:0.5em ;
+}
+
+.webbook-list.default li{
+    margin-bottom: 0.5em;
+}
+.webbook-list.default li .webbook-list-item{
+    margin-top: -0.4em;
+}
+
+.webbook-list.with-icon{
+    list-style: none;
+    margin-left:0 ;
+}
+
+.webbook-list .webbook-list-icon,
+.webbook-list .webbook-list-item,
+.webbook-list .webbook-list-item-title,
+.webbook-list .webbook-list-item-content{
+    float:left;
+}
+
+.webbook-list .webbook-list-icon{
+    margin-right: 0.5em;
+}
+
+.webbook-list .webbook-list-item-title{
+    font-weight: bold;
+}
+.webbook-list .webbook-list-item-title:after{
+    content:":";
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }

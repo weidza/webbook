@@ -3,6 +3,51 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
 <w-section title="List Component">
 
+    <w-list>
+        <w-item title="Foobar">Cum sociis natoque penatibus</w-item>
+        <w-item>Vitae dapibus enim</w-item>
+        <w-item> Phasellus pellentesque suscipit turpis non posuere</w-item>
+    </w-list>
 
 
+
+    <w-list type="number">
+        <w-item>Cum sociis natoque penatibus</w-item>
+        <w-item>Vitae dapibus enim</w-item>
+        <w-item> Phasellus pellentesque suscipit turpis non posuere</w-item>
+    </w-list>
+
+    <w-list type="positive">
+        <w-item>Cum sociis natoque penatibus</w-item>
+        <w-item>Vitae dapibus enim</w-item>
+        <w-item> Phasellus pellentesque suscipit turpis non posuere</w-item>
+    </w-list>
+
+    <w-list type="negative">
+        <w-item>Cum sociis natoque penatibus</w-item>
+        <w-item>Vitae dapibus enim</w-item>
+        <w-item> Phasellus pellentesque suscipit turpis non posuere</w-item>
+    </w-list>
+
+    <w-table caption="w-list Component attributes"
+             columns="Attribute;Type;Default value"
+             loader="listComponentAttributes"/>
+             <script type="text/javascript">
+                function listComponentAttributes(){
+                    return [
+                        ["id"   ,  "String"  ,    "auto-generated" ],
+                        ["type" ,  "String"  ,    'null|"number"|"positive"|"negative"' ],
+                    ];
+                }
+             </script>
+
+    <w-table caption="w-item Component attributes"
+             columns="Attribute;Type;Default value">
+        <w-row>
+            <w-cell>title</w-cell>
+            <w-cell>String</w-cell>
+            <w-cell></w-cell>
+        </w-row>
+
+    </w-section>
 </w-section>
