@@ -1,0 +1,20 @@
+/**
+* JavaDoc
+* @param channel
+* @param t
+* @param time
+* @param unit
+*/
+@SimpleAnnotationExample(type="ADMIN")
+public &lt;T&gt; Future&lt;T&gt; schedule(final String channel, final T t, int time, TimeUnit unit) {
+    Object data = t;
+    if(!(t instanceof Callable || t instanceof Runnable)) {
+        data = toJSON(t);
+    }
+
+    final BroadcasterListener l = new PushContextMetaListener&lt;T&gt;(listeners, channel, t);
+    final Future&lt;List&lt;Broadcaster&gt;&gt; f = metaBroadcaster.addBroadcasterListener(l).scheduleTo(channel, data, time, unit);
+
+    finalizePush(f, l);
+    return new WrappedFuture&lt;T&gt;(f, t);
+}

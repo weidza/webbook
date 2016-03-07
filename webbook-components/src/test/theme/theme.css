@@ -77,3 +77,12 @@ body{
 .webbook-table caption{
     color: #43444a;
 }
+
+/*********************************************************
+* webbook-code
+*********************************************************/
+.webbook-code .webbook-code-title{
+    background-color:#e8e8e8 ;
+    border-color: #cccccc;
+    color:#43444a;
+}

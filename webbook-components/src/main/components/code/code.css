@@ -1,0 +1,11 @@
+.webbook-code{
+    font-size: 0.8em;
+}
+.webbook-code .webbook-code-title{
+    border: 1px solid;
+    border-left: none;
+    border-right: none;
+    margin-bottom: -1em;
+    padding-left: 0.5em;
+    font-style: italic;
+}

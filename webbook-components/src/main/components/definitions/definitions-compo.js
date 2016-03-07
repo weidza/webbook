@@ -5,7 +5,6 @@ org.weidza.webBook.components.Definitions= function (options) {
 
     this.options = {
         id: "",
-        title: "",
         xtag: null
     };
 
@@ -30,5 +29,8 @@ org.weidza.webBook.components.Definitions.prototype._init = function (options) {
 // render
 // -----------------------------------------------------------------------------
 org.weidza.webBook.components.Definitions.prototype._render= function (options) {
-
+    var children = org.weidza.rendering.extractXtagChildren(this.options.xtag);
+    var compo = org.weidza.rendering.createNode('dl','webbook-definitions');
+        compo.html(children);
+    this.options.xtag.append(compo);
 };

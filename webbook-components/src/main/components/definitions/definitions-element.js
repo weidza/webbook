@@ -2,17 +2,16 @@ if(!xtag.tags['w-definitions']) {
 
     xtag.register('w-definitions', {
         accessors: {
-            type: {
+            id: {
                 attribute: {}
             }
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.services.generateId("definitions");
+                var uid = org.weidza.services.getIdOrGeneratedId(this.id,"definitions");
 
                 var options = {
                     id    : uid,
-                    type : this.type,
                     xtag  : $(this)
                 };
 

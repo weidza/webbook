@@ -14,6 +14,18 @@ org.weidza.services = {
         return componentName + "_" + index;
     },
 
+    getIdOrGeneratedId : function (id, componentName){
+        var result = null;
+        if(org.weidza.check.isNull(id)) {
+            org.weidza.asserts.notNull(componentName,"component name mustn't be null!");
+            result =org.weidza.services.generateId(componentName);
+        } else{
+            org.weidza.asserts.notNull(id,"component id mustn't be null!");
+            result = id;
+        }
+        return result;
+    },
+
     normalizeId: function (value) {
         TAB_00C0 = "AAAAAAACEEEEIIIIDNOOOOO*OUUUUYIs" +
         "aaaaaaaceeeeiiii?nooooo/ouuuuy?y" +
@@ -33,6 +45,8 @@ org.weidza.services = {
 
         return result.join('').replace(/\W/g, '_');
     },
+
+
 
     defaultValueEmpty: function (value) {
         return org.weidza.services.defaultValue(value, "");

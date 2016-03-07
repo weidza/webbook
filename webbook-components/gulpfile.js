@@ -30,13 +30,13 @@ var tools = {
 // TASKS
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-gulp.task('clean', function(cb) {
+gulp.task('clean', function() {
     tools.del([project.destination]);
 });
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-gulp.task('resolve', function(cb) {
+gulp.task('resolve', function() {
     return tools.bower().pipe(gulp.dest(project.destination+'/lib'));
 });
 
@@ -63,6 +63,7 @@ gulp.task('concat-js', function() {
         project.source+'/core/core-rendering.js',
         project.source+'/core/core-components.js',
         project.source+'/components/**/*-compo.js',
+        project.source+'/components/**/sh*.js',
         project.source+'/core/core-webcomponents.js',
         project.source+'/components/**/*-element.js',
     ])
@@ -70,10 +71,40 @@ gulp.task('concat-js', function() {
     .pipe(gulp.dest(project.destination));;
 });
 
-gulp.task('concat-vendors', function() {
+gulp.task('concat-vendors', ['resolve'],function() {
     return gulp.src([
         project.destination+'/lib/jquery/**/jquery.min.js',
-        project.destination+'/lib/x-tag-core/**/x-tag-core.min.js'
+        project.destination+'/lib/x-tag-core/**/x-tag-core.min.js',
+        project.destination+'/lib/xregexp/**/xregexp-all-min.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shCore.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushAppleScript.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushAS3.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushBash.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushColdFusion.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushCpp.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushCSharp.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushCss.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushDelphi.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushDiff.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushErlang.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushGroovy.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushHaxe.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushJava.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushJavaFX.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushJScript.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushPerl.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushPhp.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushPlain.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushPowerShell.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushPython.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushRuby.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushSass.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushScala.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushSql.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushTAP.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushTypeScript.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushVb.js',
+        project.destination+'/lib/SyntaxHighlighter/**/shBrushXml.js'
     ])
     .pipe(tools.concat('vendors.js'))
     .pipe(gulp.dest(project.destination));
