@@ -86,3 +86,12 @@ body{
     border-color: #cccccc;
     color:#43444a;
 }
+
+/*********************************************************
+* webbook-emphase
+*********************************************************/
+.webbook-emphase{
+    color: #C7254E;
+    background-color: #F9F2F4;
+    font-weight: normal;
+}
