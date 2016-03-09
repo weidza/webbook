@@ -2,22 +2,22 @@
 :: Table
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
 <w-section title="Table Component">
+
+     <script type="text/javascript">
+     function tableComponentAttributes(){
+        return [
+            ["id"              ,  "String"    ,    "auto-generated" ,   ""],
+            ["title"           ,  "String"    ,    "" ,   ""],
+            ["caption"         ,  "String"    ,    "" ,   ""],
+            ["columns"         ,  "String[]"  ,    "" ,   "must be separate by ';'"],
+            ["column_classes"  ,  "String[]"  ,    "" ,   "must be separate by ';'. Allow to specify column style class"],
+            ["loader"          ,  "Function"  ,    "" ,   "for dynamic data loading with JavaScript function"],
+        ];
+     }
+     </script>
     <w-table caption="Component attributes"
              columns="Attribute;Type;Default value;comment"
              loader="tableComponentAttributes"/>
-             <script type="text/javascript">
-             function tableComponentAttributes(){
-                return [
-                    ["id"              ,  "String"    ,    "auto-generated" ,   ""],
-                    ["title"           ,  "String"    ,    "" ,   ""],
-                    ["caption"         ,  "String"    ,    "" ,   ""],
-                    ["columns"         ,  "String[]"  ,    "" ,   "must be separate by ';'"],
-                    ["column_classes"  ,  "String[]"  ,    "" ,   "must be separate by ';'. Allow to specify column style class"],
-                    ["loader"          ,  "Function"  ,    "" ,   "for dynamic data loading with JavaScript function"],
-                ];
-             }
-             </script>
-
 
 
 
@@ -50,12 +50,6 @@
 
 
     <w-section title="Dynamic table with JavaScript loader">
-        <w-table title="Table with values component"
-                 caption="Allow to display tabular data with JavaScript function"
-                 columns="Pellentesque;Volutpat;Tempus"
-                 column_classes="defaut;numer;time"
-                 loader="valueLoaderFunction"/>
-
         <script type="text/javascript">
             function valueLoaderFunction(){
                 return [
@@ -80,6 +74,13 @@
                 ];
             }
         </script>
+        <w-table title="Table with values component"
+                 caption="Allow to display tabular data with JavaScript function"
+                 columns="Pellentesque;Volutpat;Tempus"
+                 column_classes="defaut;numer;time"
+                 loader="valueLoaderFunction"/>
+
+
     </w-section>
 
 </w-section>

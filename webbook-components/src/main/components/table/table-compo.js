@@ -118,6 +118,7 @@ org.wiedza.webBook.components.Table.prototype._extractCellInformation = function
 };
 
 org.wiedza.webBook.components.Table.prototype._updateFromFunction = function () {
+    org.wiedza.asserts.notNull(this._innerValues.loader,"Error load function isn't define! ("+this.options.loader+")");
     var uncheckedDatas = this._innerValues.loader();
 
     if (org.wiedza.check.isNotNull(uncheckedDatas)) {

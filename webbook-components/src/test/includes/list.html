@@ -29,17 +29,23 @@
         <w-item> Phasellus pellentesque suscipit turpis non posuere</w-item>
     </w-list>
 
+
     <w-table caption="w-list Component attributes"
-             columns="Attribute;Type;Default value"
-             loader="listComponentAttributes"/>
-             <script type="text/javascript">
-                function listComponentAttributes(){
-                    return [
-                        ["id"   ,  "String"  ,    "auto-generated" ],
-                        ["type" ,  "String"  ,    'null|"number"|"positive"|"negative"' ],
-                    ];
-                }
-             </script>
+             columns="Attribute;Type;Default value">
+
+        <w-row>
+            <w-cell>id</w-cell>
+            <w-cell>String</w-cell>
+            <w-cell>auto-generated</w-cell>
+        </w-row>
+
+        <w-row>
+            <w-cell>type</w-cell>
+            <w-cell>String</w-cell>
+            <w-cell>null|"number"|"positive"|"negative"</w-cell>
+        </w-row>
+    </w-table>
+
 
     <w-table caption="w-item Component attributes"
              columns="Attribute;Type;Default value">
