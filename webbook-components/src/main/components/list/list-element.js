@@ -12,8 +12,8 @@ if(!xtag.tags['w-list']) {
         lifecycle: {
             inserted: function() {
                 var uid = null;
-                if(org.weidza.check.isNull(this.id)){
-                    uid=org.weidza.services.generateId("list");
+                if(org.wiedza.check.isNull(this.id)){
+                    uid=org.wiedza.services.generateId("list");
                 }else{
                     uid = this.id;
                 }
@@ -25,7 +25,7 @@ if(!xtag.tags['w-list']) {
                     xtag  : $(this)
                 };
 
-                window[uid]= new org.weidza.webBook.components.List(options);
+                window[uid]= new org.wiedza.webBook.components.List(options);
             }
         }
     });

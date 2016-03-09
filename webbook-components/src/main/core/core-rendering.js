@@ -2,19 +2,19 @@
 // RENDERING API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-org.weidza.rendering={
-    _LOGGER :org.weidza.logger.factory("org.weidza.rendering"),
+org.wiedza.rendering={
+    _LOGGER :org.wiedza.logger.factory("org.wiedza.rendering"),
 
     createNode : function(nodeName, styleClass, id){
-        org.weidza.asserts.notNull(nodeName,"can't create node, node name is null!");
+        org.wiedza.asserts.notNull(nodeName,"can't create node, node name is null!");
 
         var result = $('<'+nodeName+'></'+nodeName+'>');
 
-        if(org.weidza.check.notEmpty(id)){
+        if(org.wiedza.check.notEmpty(id)){
             result.attr("id",id);
         }
 
-        if(org.weidza.check.notEmpty(styleClass)){
+        if(org.wiedza.check.notEmpty(styleClass)){
             result.attr("class",styleClass);
         }
 
@@ -22,7 +22,7 @@ org.weidza.rendering={
     },
 
     extractXtagChildren : function(node){
-        org.weidza.asserts.notNull(node,"can't extract Xtag children, node is null!");
+        org.wiedza.asserts.notNull(node,"can't extract Xtag children, node is null!");
 
         var result =  node.context.innerHTML;
         node.context.innerHTML ="";
@@ -32,11 +32,11 @@ org.weidza.rendering={
     },
 
     styleIfNotNull : function (node, styleClass){
-        return org.weidza.check.isNotNull(node)?styleClass:"";
+        return org.wiedza.check.isNotNull(node)?styleClass:"";
     },
 
     styleIfNull : function (node, styleClass){
-        return org.weidza.check.isNull(node)?styleClass:"";
+        return org.wiedza.check.isNull(node)?styleClass:"";
     },
 
     clearDiv : function(){

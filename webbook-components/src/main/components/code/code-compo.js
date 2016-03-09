@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// org.weidza.webBook.components.Code
+// org.wiedza.webBook.components.Code
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.components.Code= function (options) {
+org.wiedza.webBook.components.Code= function (options) {
 
     this.options = {
         id: "",
@@ -18,7 +18,7 @@ org.weidza.webBook.components.Code= function (options) {
 
     this._init(options);
 
-    if(org.weidza.check.isNull(this.options.src)){
+    if(org.wiedza.check.isNull(this.options.src)){
         this._render();
     }
 
@@ -27,21 +27,21 @@ org.weidza.webBook.components.Code= function (options) {
 // -----------------------------------------------------------------------------
 // initialize
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Code.prototype._init = function (options) {
-    org.weidza.asserts.notNull(options, "Table option mustn't be null!");
-    org.weidza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
-    org.weidza.asserts.notNull(options.id, "ID mustn't be null!");
+org.wiedza.webBook.components.Code.prototype._init = function (options) {
+    org.wiedza.asserts.notNull(options, "Table option mustn't be null!");
+    org.wiedza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
+    org.wiedza.asserts.notNull(options.id, "ID mustn't be null!");
 
     this.options = options;
-    this._innerValues.childrenContent= org.weidza.rendering.extractXtagChildren(this.options.xtag);
-    if(org.weidza.check.isNotNull(this.options.src)){
+    this._innerValues.childrenContent= org.wiedza.rendering.extractXtagChildren(this.options.xtag);
+    if(org.wiedza.check.isNotNull(this.options.src)){
         this._loadFromExternal();
     }
 };
 
-org.weidza.webBook.components.Code.prototype._loadFromExternal= function () {
+org.wiedza.webBook.components.Code.prototype._loadFromExternal= function () {
     var self = this;
-    var node = org.weidza.rendering.createNode('div');
+    var node = org.wiedza.rendering.createNode('div');
         node.load(this.options.src, function(){
             self._innerValues.childrenContent=  node.html();
             self._render();
@@ -50,10 +50,10 @@ org.weidza.webBook.components.Code.prototype._loadFromExternal= function () {
 // -----------------------------------------------------------------------------
 // render
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Code.prototype._render= function () {
-    var compo = org.weidza.rendering.createNode('div','webbook-code',this.options.id);
+org.wiedza.webBook.components.Code.prototype._render= function () {
+    var compo = org.wiedza.rendering.createNode('div','webbook-code',this.options.id);
 
-    if(org.weidza.check.isNotNull(this.options.title)){
+    if(org.wiedza.check.isNotNull(this.options.title)){
         compo.append(this._renderTitle());
     }
 
@@ -64,17 +64,17 @@ org.weidza.webBook.components.Code.prototype._render= function () {
 };
 
 
-org.weidza.webBook.components.Code.prototype._renderTitle= function () {
-    var result = org.weidza.rendering.createNode('div','webbook-code-title');
+org.wiedza.webBook.components.Code.prototype._renderTitle= function () {
+    var result = org.wiedza.rendering.createNode('div','webbook-code-title');
         result.html(this.options.title);
     return result;
 };
 
-org.weidza.webBook.components.Code.prototype._renderContent= function () {
-    var result = org.weidza.rendering.createNode('div','webbook-code-content');
+org.wiedza.webBook.components.Code.prototype._renderContent= function () {
+    var result = org.wiedza.rendering.createNode('div','webbook-code-content');
 
     var highlight = "";
-    if(org.weidza.check.isNotNull(this.options.highlight)){
+    if(org.wiedza.check.isNotNull(this.options.highlight)){
         highlight = "; highlight:"+this.options.highlight;
     }
 
@@ -89,7 +89,7 @@ org.weidza.webBook.components.Code.prototype._renderContent= function () {
             highlight
     ].join(" ");
 
-    var content = org.weidza.rendering.createNode('pre',styles );
+    var content = org.wiedza.rendering.createNode('pre',styles );
         content.html(this._innerValues.childrenContent);
 
     result.append(content);

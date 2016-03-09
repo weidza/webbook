@@ -1,5 +1,5 @@
 {
-  "name": "org.weidza.webbook_webbook-components",
+  "name": "org.wiedza.webbook_webbook-components",
   "version": "0.0.1-SNAPSHOT",
   "devDependencies": {
     "del"             : "latest",

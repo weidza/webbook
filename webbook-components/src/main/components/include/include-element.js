@@ -8,7 +8,7 @@ if(!xtag.tags['w-include']) {
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.services.generateId("include");
+                var uid = org.wiedza.services.generateId("include");
 
                 var options = {
                     id:uid,
@@ -16,7 +16,7 @@ if(!xtag.tags['w-include']) {
                     xtag : $(this)
                 };
 
-                window[uid]= new org.weidza.webBook.components.Include(options);
+                window[uid]= new org.wiedza.webBook.components.Include(options);
             }
         }
     });

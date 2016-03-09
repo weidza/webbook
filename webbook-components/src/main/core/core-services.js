@@ -1,26 +1,26 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // CORE SERVICE
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.services = {
+org.wiedza.services = {
 
     generateId: function (componentName) {
-        var index = org.weidza._innerValues.componentsIds[componentName];
+        var index = org.wiedza._innerValues.componentsIds[componentName];
 
         if (index === undefined || index === null) {
             index = 0;
         }
         index++;
-        org.weidza._innerValues.componentsIds[componentName] = index;
+        org.wiedza._innerValues.componentsIds[componentName] = index;
         return componentName + "_" + index;
     },
 
     getIdOrGeneratedId : function (id, componentName){
         var result = null;
-        if(org.weidza.check.isNull(id)) {
-            org.weidza.asserts.notNull(componentName,"component name mustn't be null!");
-            result =org.weidza.services.generateId(componentName);
+        if(org.wiedza.check.isNull(id)) {
+            org.wiedza.asserts.notNull(componentName,"component name mustn't be null!");
+            result =org.wiedza.services.generateId(componentName);
         } else{
-            org.weidza.asserts.notNull(id,"component id mustn't be null!");
+            org.wiedza.asserts.notNull(id,"component id mustn't be null!");
             result = id;
         }
         return result;
@@ -49,7 +49,7 @@ org.weidza.services = {
 
 
     defaultValueEmpty: function (value) {
-        return org.weidza.services.defaultValue(value, "");
+        return org.wiedza.services.defaultValue(value, "");
     },
 
     defaultValue: function (value, defaultValue) {
@@ -63,7 +63,7 @@ org.weidza.services = {
     },
 
     getParent: function (nodeName, currentNode) {
-        org.weidza.asserts.notNull(nodeName, "can't search node parent without this name!")
+        org.wiedza.asserts.notNull(nodeName, "can't search node parent without this name!")
         return this._processGetParent(nodeName.toUpperCase(), currentNode);
     },
 
@@ -85,7 +85,7 @@ org.weidza.services = {
     },
 
     getFunction: function (name) {
-        org.weidza.asserts.notNull(name, "function name mustn't be null !");
+        org.wiedza.asserts.notNull(name, "function name mustn't be null !");
         var result = null;
 
         if (name.indexOf(".") == -1) {
@@ -96,7 +96,7 @@ org.weidza.services = {
             for (var index = 0; index < packageNames.length; index++) {
                 if (index == 0) {
                     result = window[packageNames[index]];
-                    org.weidza.asserts.notNull(result, "no namespace found :" + packageNames[index]);
+                    org.wiedza.asserts.notNull(result, "no namespace found :" + packageNames[index]);
                 } else {
                     result = result[packageNames[index]];
                 }

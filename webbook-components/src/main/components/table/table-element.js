@@ -24,8 +24,8 @@ if(!xtag.tags['w-table']) {
         lifecycle: {
             inserted: function() {
                 var uid = null;
-                if(org.weidza.check.isNull(this.id)){
-                    uid = org.weidza.services.generateId("table");
+                if(org.wiedza.check.isNull(this.id)){
+                    uid = org.wiedza.services.generateId("table");
                 }else{
                     uid = this.id;
                 }
@@ -40,7 +40,7 @@ if(!xtag.tags['w-table']) {
                     xtag          : $(this)
                 };
 
-                window[uid]= new org.weidza.webBook.components.Table(options);
+                window[uid]= new org.wiedza.webBook.components.Table(options);
             }
         }
     });

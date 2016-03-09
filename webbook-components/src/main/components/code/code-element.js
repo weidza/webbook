@@ -20,7 +20,7 @@ if (!xtag.tags['w-code']) {
         },
         lifecycle: {
             inserted: function () {
-                var uid = org.weidza.services.getIdOrGeneratedId(this.id, "code");
+                var uid = org.wiedza.services.getIdOrGeneratedId(this.id, "code");
 
                 var options = {
                     id: uid,
@@ -31,7 +31,7 @@ if (!xtag.tags['w-code']) {
                     xtag: $(this)
                 };
 
-                window[uid] = new org.weidza.webBook.components.Code(options);
+                window[uid] = new org.wiedza.webBook.components.Code(options);
             }
         }
     });

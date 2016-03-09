@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// org.weidza.webBook.components.Definitions
+// org.wiedza.webBook.components.Definitions
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.components.Definitions= function (options) {
+org.wiedza.webBook.components.Definitions= function (options) {
 
     this.options = {
         id: "",
@@ -16,10 +16,10 @@ org.weidza.webBook.components.Definitions= function (options) {
 // -----------------------------------------------------------------------------
 // initialize
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Definitions.prototype._init = function (options) {
-    org.weidza.asserts.notNull(options, "Table option mustn't be null!");
-    org.weidza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
-    org.weidza.asserts.notNull(options.id, "ID mustn't be null!");
+org.wiedza.webBook.components.Definitions.prototype._init = function (options) {
+    org.wiedza.asserts.notNull(options, "Table option mustn't be null!");
+    org.wiedza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
+    org.wiedza.asserts.notNull(options.id, "ID mustn't be null!");
 
     this.options = options;
 };
@@ -28,9 +28,9 @@ org.weidza.webBook.components.Definitions.prototype._init = function (options) {
 // -----------------------------------------------------------------------------
 // render
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Definitions.prototype._render= function (options) {
-    var children = org.weidza.rendering.extractXtagChildren(this.options.xtag);
-    var compo = org.weidza.rendering.createNode('dl','webbook-definitions');
+org.wiedza.webBook.components.Definitions.prototype._render= function (options) {
+    var children = org.wiedza.rendering.extractXtagChildren(this.options.xtag);
+    var compo = org.wiedza.rendering.createNode('dl','webbook-definitions');
         compo.html(children);
     this.options.xtag.append(compo);
 };

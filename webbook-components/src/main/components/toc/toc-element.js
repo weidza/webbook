@@ -10,7 +10,7 @@ if(!xtag.tags['w-toc']) {
         lifecycle: {
             inserted: function() {
                 var jNode = $(this);
-                var uid = org.weidza.services.generateId("toc");
+                var uid = org.wiedza.services.generateId("toc");
 
                 var options = {
                     id       : uid,
@@ -18,7 +18,7 @@ if(!xtag.tags['w-toc']) {
                     xtag     : jNode
                 };
 
-                window[uid]= new org.weidza.webBook.components.Toc(options);
+                window[uid]= new org.wiedza.webBook.components.Toc(options);
             }
         }
     });

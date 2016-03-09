@@ -11,7 +11,7 @@ if(!xtag.tags['w-bloc']) {
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.services.generateId("bloc");
+                var uid = org.wiedza.services.generateId("bloc");
 
                 var options = {
                     id    : uid,
@@ -20,7 +20,7 @@ if(!xtag.tags['w-bloc']) {
                     xtag  : $(this)
                 };
 
-                window[uid]= new org.weidza.webBook.components.Bloc(options);
+                window[uid]= new org.wiedza.webBook.components.Bloc(options);
             }
         }
     });

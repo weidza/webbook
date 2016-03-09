@@ -1,4 +1,4 @@
-package org.weidza.webbook.maven.plugins.actions;
+package org.wiedza.webbook.maven.plugins.actions;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;

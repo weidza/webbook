@@ -8,7 +8,7 @@
     = PROJECT INFORMATIONS
     ============================================================================
     -->
-    <groupId>org.weidza.webbook</groupId>
+    <groupId>org.wiedza.webbook</groupId>
     <artifactId>webbook-reactor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>

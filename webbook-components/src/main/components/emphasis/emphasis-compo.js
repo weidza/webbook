@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// org.weidza.webBook.components.Definitions
+// org.wiedza.webBook.components.Definitions
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.components.Emphase= function (options) {
+org.wiedza.webBook.components.Emphasis= function (options) {
     this.options = {
         id: "",
         xtag: null
@@ -14,10 +14,10 @@ org.weidza.webBook.components.Emphase= function (options) {
 // -----------------------------------------------------------------------------
 // initialize
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Emphase.prototype._init = function (options) {
-    org.weidza.asserts.notNull(options, "Table option mustn't be null!");
-    org.weidza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
-    org.weidza.asserts.notNull(options.id, "ID mustn't be null!");
+org.wiedza.webBook.components.Emphasis.prototype._init = function (options) {
+    org.wiedza.asserts.notNull(options, "Table option mustn't be null!");
+    org.wiedza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
+    org.wiedza.asserts.notNull(options.id, "ID mustn't be null!");
     this.options = options;
 };
 
@@ -25,9 +25,9 @@ org.weidza.webBook.components.Emphase.prototype._init = function (options) {
 // -----------------------------------------------------------------------------
 // render
 // -----------------------------------------------------------------------------
-org.weidza.webBook.components.Emphase.prototype._render= function (options) {
-    var children = org.weidza.rendering.extractXtagChildren(this.options.xtag);
-    var compo = org.weidza.rendering.createNode('span','webbook-emphase',this.options.id);
+org.wiedza.webBook.components.Emphasis.prototype._render= function (options) {
+    var children = org.wiedza.rendering.extractXtagChildren(this.options.xtag);
+    var compo = org.wiedza.rendering.createNode('span','webbook-emphase',this.options.id);
         compo.html(children);
     this.options.xtag.append(compo);
 };

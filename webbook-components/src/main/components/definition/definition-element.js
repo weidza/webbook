@@ -11,7 +11,7 @@ if(!xtag.tags['w-definitions']) {
         },
         lifecycle: {
             inserted: function() {
-                var uid = org.weidza.services.getIdOrGeneratedId(this.id,"definition");
+                var uid = org.wiedza.services.getIdOrGeneratedId(this.id,"definition");
 
                 var options = {
                     id    : uid,
@@ -19,7 +19,7 @@ if(!xtag.tags['w-definitions']) {
                     xtag  : $(this)
                 };
 
-                window[uid]= new org.weidza.webBook.components.Definition(options);
+                window[uid]= new org.wiedza.webBook.components.Definition(options);
             }
         }
     });

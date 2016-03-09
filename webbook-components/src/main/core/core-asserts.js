@@ -1,8 +1,8 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // ASSERTS API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.asserts= {
-    _LOGGER :org.weidza.logger.factory("org.weidza.asserts"),
+org.wiedza.asserts= {
+    _LOGGER :org.wiedza.logger.factory("org.wiedza.asserts"),
 
     notNull: function (value, message) {
         if (value === undefined || value === null) {
@@ -24,14 +24,14 @@ org.weidza.asserts= {
     },
     type:{
         isString : function (value){
-            org.weidza.asserts.notNull(value,"can't verify object type with null object!");
+            org.wiedza.asserts.notNull(value,"can't verify object type with null object!");
 
             var isString = ((typeof value) === 'string') || (value instanceof String);
             this._validate(isString,value,"String");
 
         },
         isArray : function (value){
-            org.weidza.asserts.notNull(value,"can't verify object type with null object!");
+            org.wiedza.asserts.notNull(value,"can't verify object type with null object!");
             var isArray = ((typeof value) === 'array') || (value instanceof Array);
             this._validate(isArray,value,"Array");
 

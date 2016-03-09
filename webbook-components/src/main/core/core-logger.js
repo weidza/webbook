@@ -2,7 +2,7 @@
 // LOGGER API
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-org.weidza.logger={
+org.wiedza.logger={
     levels:{
         trace : {level :1,title : "TRACE"},
         debug : {level :2,title : "DEBUG"},
@@ -19,27 +19,27 @@ org.weidza.logger={
         };
 
         this.trace = function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.trace,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.trace,this.option.name,message, values);
         };
 
         this.debug =function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.debug,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.debug,this.option.name,message, values);
         };
 
         this.info = function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.info,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.info,this.option.name,message, values);
         };
 
         this.warn = function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.warn,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.warn,this.option.name,message, values);
         };
 
         this.error = function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.error,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.error,this.option.name,message, values);
         };
 
         this.fatal = function(message, values){
-            org.weidza.logger._processAppender(org.weidza.logger.levels.fatal,this.option.name,message, values);
+            org.wiedza.logger._processAppender(org.wiedza.logger.levels.fatal,this.option.name,message, values);
         };
 
     } ,
@@ -124,7 +124,7 @@ org.weidza.logger={
         }
         if(this._appenders.length===0){
 
-            this._appenders.push(Object.create(org.weidza.logger._DefaultAppender));
+            this._appenders.push(Object.create(org.wiedza.logger._DefaultAppender));
         }
     },
 
@@ -134,7 +134,7 @@ org.weidza.logger={
             throw  "Logger name mustn't be null!";
         }
         if(this._findRegistredIndex(loggerName)===-1){
-            this._registredLogger[loggerName]= new org.weidza.logger._Logger(loggerName);
+            this._registredLogger[loggerName]= new org.wiedza.logger._Logger(loggerName);
 
             this._createDefaultAppenders();
         }

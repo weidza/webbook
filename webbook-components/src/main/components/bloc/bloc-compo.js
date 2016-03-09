@@ -1,7 +1,7 @@
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// org.weidza.webBook.components.Include
+// org.wiedza.webBook.components.Include
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-org.weidza.webBook.components.Bloc =  function(options) {
+org.wiedza.webBook.components.Bloc =  function(options) {
     this.options = {
         id: "",
         title: "",
@@ -21,22 +21,22 @@ org.weidza.webBook.components.Bloc =  function(options) {
     this._render();
 };
 
-org.weidza.webBook.components.Bloc.prototype._init = function(options) {
+org.wiedza.webBook.components.Bloc.prototype._init = function(options) {
 
-        org.weidza.asserts.notNull(options, "bloc option mustn't be null!");
-        org.weidza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
-        org.weidza.asserts.notNull(options.id, "ID mustn't be null!");
+        org.wiedza.asserts.notNull(options, "bloc option mustn't be null!");
+        org.wiedza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
+        org.wiedza.asserts.notNull(options.id, "ID mustn't be null!");
 
         this.options.id     = options.id;
-        this.options.title  = org.weidza.services.defaultValueEmpty(options.title);
-        this.options.level  = org.weidza.services.defaultValueEmpty(options.level);
-        this.options.images = org.weidza.services.defaultValue(options.images,this.options.images);
+        this.options.title  = org.wiedza.services.defaultValueEmpty(options.title);
+        this.options.level  = org.wiedza.services.defaultValueEmpty(options.level);
+        this.options.images = org.wiedza.services.defaultValue(options.images,this.options.images);
         this.options.xtag   = options.xtag;
         this._checkLevel();
 
 };
 
-org.weidza.webBook.components.Bloc.prototype._checkLevel = function(){
+org.wiedza.webBook.components.Bloc.prototype._checkLevel = function(){
         var levelImgKey=null;
         var keys =Object.keys(this.options.images);
         for(var i =keys.length-1;i>=0;i--){
@@ -46,54 +46,54 @@ org.weidza.webBook.components.Bloc.prototype._checkLevel = function(){
             }
         }
 
-        if(org.weidza.check.isNull(levelImgKey)){
+        if(org.wiedza.check.isNull(levelImgKey)){
             this.options.level= "info" ;
         }else{
             this.options.level= levelImgKey ;
         }
 };
 
-org.weidza.webBook.components.Bloc.prototype._grabIcon =function(){
+org.wiedza.webBook.components.Bloc.prototype._grabIcon =function(){
         return this.options.images[this.options.level];
 };
 
-org.weidza.webBook.components.Bloc.prototype._render = function (){
-        var children = org.weidza.rendering.extractXtagChildren(this.options.xtag);
+org.wiedza.webBook.components.Bloc.prototype._render = function (){
+        var children = org.wiedza.rendering.extractXtagChildren(this.options.xtag);
 
-        var titleClass = org.weidza.rendering.styleIfNotNull(this.options.title, "title");
+        var titleClass = org.wiedza.rendering.styleIfNotNull(this.options.title, "title");
 
-        var compo = org.weidza.rendering.createNode('div',
+        var compo = org.wiedza.rendering.createNode('div',
                                                     ['webbook-bloc', this.options.level, titleClass].join(" "),
                                                     this.options.id);
 
 
         // icon ....................................
-        var iconGrp= org.weidza.rendering.createNode('div','webbook-bloc-icon-grp');
+        var iconGrp= org.wiedza.rendering.createNode('div','webbook-bloc-icon-grp');
 
         var iconImage = this._grabIcon();
-        var icon= org.weidza.rendering.createNode('img');
+        var icon= org.wiedza.rendering.createNode('img');
             icon.attr("src",iconImage);
 
         iconGrp.append(icon);
         compo.append(iconGrp);
 
         // content .................................
-        var contentGrp= org.weidza.rendering.createNode('div','webbook-bloc-content');
+        var contentGrp= org.wiedza.rendering.createNode('div','webbook-bloc-content');
 
 
-        if(org.weidza.check.notEmpty(this.options.title)){
-            var title= org.weidza.rendering.createNode('div','webbook-bloc-content-title');
+        if(org.wiedza.check.notEmpty(this.options.title)){
+            var title= org.wiedza.rendering.createNode('div','webbook-bloc-content-title');
                 title.html(this.options.title);
 
             contentGrp.append(title);
         }
 
-        var childrenContent= org.weidza.rendering.createNode('div','webbook-bloc-content-children');
+        var childrenContent= org.wiedza.rendering.createNode('div','webbook-bloc-content-children');
             childrenContent.text(children);
         contentGrp.append(childrenContent);
 
         compo.append(contentGrp);
-        compo.append(org.weidza.rendering.clearDiv());
+        compo.append(org.wiedza.rendering.clearDiv());
         // append to root ...........................
         this.options.xtag.append(compo);
 };

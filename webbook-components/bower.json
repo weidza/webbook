@@ -1,5 +1,5 @@
 {
-  "name": "org.weidza.webbook_webbook-components",
+  "name": "org.wiedza.webbook_webbook-components",
   "dependencies": {
         "jquery"            : "1.12.1",
         "x-tag-core"        : "1.5.6",
