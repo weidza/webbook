@@ -39,7 +39,7 @@ org.wiedza.webBook.components.Toc.prototype._init = function (options) {
 
 };
 
-org.wiedza.webBook.components.Toc.prototype.eventRegisterSection = function(section){
+org.wiedza.webBook.components.Toc.prototype.eventRegisterSection = function(){
     this._renderContent();
 };
 
@@ -52,30 +52,62 @@ org.wiedza.webBook.components.Toc.prototype._render = function () {
 
 org.wiedza.webBook.components.Toc.prototype._renderContent = function () {
     this._innerValues.compo.html("");
+    var list = org.wiedza.rendering.createNode('ul');
 
     var sections =org.wiedza.webBook.services.getAllSections();
     var nbSections = sections.length;
     for(var i = 0 ; i<nbSections; i++){
         var item = sections[i];
 
-        if(item.getLevel()<=this.options.levelMax){
-            this._renderSection(item);
+        if(item.hasParent()){
+            var sectionRendered =this._renderSection(item);
+            if(org.wiedza.check.isNotNull(sectionRendered)){
+                var sectionItem = org.wiedza.rendering.createNode('li');
+                    sectionItem.append(sectionRendered);
+                list.append(sectionItem);
+            }
         }
     }
+    this._innerValues.compo.append(list);
 };
 
 org.wiedza.webBook.components.Toc.prototype._renderSection = function (section) {
-    var level = section.getLevel();
-    if(level >10){
-        level =10;
-    }
-    var result = org.wiedza.rendering.createNode('div', ['webbook-toc-section', "level_"+level].join(" "));
+    var result = null;
+    if(section.getLevel()<=this.options.levelMax) {
+        var level = section.getLevel();
+        if (level > 10) {
+            level = 10;
+        }
 
-    var link = org.wiedza.rendering.createNode('a');
-        link.attr('href',"#"+section.getFullId());
+        result = org.wiedza.rendering.createNode('div', ['webbook-toc-section', "level_" + level].join(" "));
+
+        var link = org.wiedza.rendering.createNode('a');
+        link.attr('href', "#" + section.getFullId());
         link.text(section.getTitle());
 
-    result.append(link);
+        result.append(link);
 
-    this._innerValues.compo.append(result);
-}
+        var children = this._renderChildrenSection(section);
+        if(org.wiedza.check.isNotNull(children)){
+            result.append(children);
+        }
+    }
+    return result;
+};
+
+org.wiedza.webBook.components.Toc.prototype._renderChildrenSection = function (section) {
+    var result = null;
+    if(section.hasChildren()){
+        result= org.wiedza.rendering.createNode('ul');
+
+        for(var i=0;i<section.getChildren().length;i++){
+            var childRendered = this._renderSection(section.getChildren()[i]);
+            if(org.wiedza.check.isNotNull(childRendered)){
+                var item = org.wiedza.rendering.createNode('li');
+                    item.append(childRendered);
+                result.append(item);
+            }
+        }
+    }
+    return result;
+};

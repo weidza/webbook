@@ -28,16 +28,8 @@ org.wiedza.webBook.components.Include.prototype._render = function () {
 
     var self = this;
     $.ajax(this.options.src).done(function(data) {
-        var scripts =  $(data).find("script");
-
-        if(org.wiedza.check.isNotNull(scripts)){
-            for(var i=0;i<scripts.length;i++){
-                var script = scripts[i].innerText.trim();
-                $.globalEval(script);
-            }
-        }
-
-        self.options.xtag.container.html(data);
+        var nodes = $.parseHTML(data,document,true);
+        self.options.xtag.container.append(nodes );
     });
 
 

@@ -7,9 +7,15 @@ org.wiedza.webBook.components.Section = function (options) {
     this.options = {
         id: "",
         parent: null,
+        parentId : null,
         title: "",
         xtag: null,
         level: 0
+    };
+
+    this._innerValues = {
+        title    : null,
+        children : []
     };
 
     this._init(options);
@@ -17,18 +23,18 @@ org.wiedza.webBook.components.Section = function (options) {
 };
 
 
+/*-----------------------------------------------------------------------
+ * Private API
+ -----------------------------------------------------------------------*/
 org.wiedza.webBook.components.Section.prototype._init = function (options) {
     org.wiedza.asserts.notNull(options, "chapter option mustn't be null!");
     org.wiedza.asserts.notNull(options.xtag, "XTag node mustn't be null!");
     org.wiedza.asserts.notNull(options.id, "ID mustn't be null!");
     org.wiedza.asserts.notNull(options.title, "section title mustn't be null!");
 
-    this.options.id = options.id;
-    this.options.xtag = options.xtag;
-    this.options.title = options.title;
-    this.options.parent = options.parent;
-
-    this.options.level = this._calcLevel();
+    this.options = options;
+    this._resolveParentProcess();
+    this._calcLevelProcess();
 };
 
 
@@ -48,18 +54,25 @@ org.wiedza.webBook.components.Section.prototype._render = function () {
 };
 
 org.wiedza.webBook.components.Section.prototype._renderTitle = function () {
-    var titleGrp = org.wiedza.rendering.createNode('div', 'webbook-section-title', this.getFullId());
+    if(org.wiedza.check.isNull(this._innerValues.title )){
+        this._innerValues.title = org.wiedza.rendering.createNode('div');
+    }
+
+    var grp= org.wiedza.rendering.createNode('div', 'webbook-section-title', this.getFullId());
 
     var title = org.wiedza.rendering.createNode('h' + this.options.level);
-    title.text(this.options.title);
+        title.attr('data-full-id',this.getFullId());
+        title.text(this.options.title);
+
 
 
     var anchor = org.wiedza.rendering.createNode('a', 'webbook-section-title-anchor');
     anchor.attr('href', "#" + this.getFullId());
 
     title.append(anchor);
-    titleGrp.append(title);
-    return titleGrp;
+    grp.append(title);
+    this._innerValues.title.append(grp);
+    return this._innerValues.title;
 };
 
 org.wiedza.webBook.components.Section.prototype._renderContent = function () {
@@ -70,6 +83,54 @@ org.wiedza.webBook.components.Section.prototype._renderContent = function () {
 };
 
 
+org.wiedza.webBook.components.Section.prototype._resolveParent= function () {
+    if(org.wiedza.check.isNull(this.options.parent) && org.wiedza.check.isNotNull(this.options.parentId)){
+        this._resolveParentProcess();
+    }
+    this._calcLevelProcess();
+};
+
+
+
+org.wiedza.webBook.components.Section.prototype._resolveParentProcess= function () {
+    this.options.parent = org.wiedza.webBook.services.findSection(this.options.parentId);
+    if(org.wiedza.check.isNotNull(this.options.parent)){
+        this.options.parent.registerChildren(this);
+    }
+}
+
+org.wiedza.webBook.components.Section.prototype._calcLevelProcess= function () {
+    this.options.level = this._calcLevel();
+}
+
+
+/*-----------------------------------------------------------------------
+ * Public API
+ -----------------------------------------------------------------------*/
+org.wiedza.webBook.components.Section.prototype.update = function () {
+    this._resolveParent();
+    this._innerValues.title.html("");
+    this._renderTitle();
+}
+
+/*-----------------------------------------------------------------------
+ * Getters
+ -----------------------------------------------------------------------*/
+org.wiedza.webBook.components.Section.prototype.hasParent= function () {
+    return org.wiedza.check.isNull(this.options.parentId);
+};
+
+org.wiedza.webBook.components.Section.prototype.registerChildren= function (child) {
+    this._innerValues.children.push(child);
+};
+
+org.wiedza.webBook.components.Section.prototype.hasChildren= function () {
+  return this._innerValues.children.length>0;
+};
+
+org.wiedza.webBook.components.Section.prototype.getChildren= function () {
+    return this._innerValues.children;
+};
 org.wiedza.webBook.components.Section.prototype.getLevel = function () {
     return this.options.level;
 };
@@ -81,6 +142,7 @@ org.wiedza.webBook.components.Section.prototype.getId = function () {
 
 org.wiedza.webBook.components.Section.prototype.getFullId = function () {
     var result = null;
+
     if (org.wiedza.check.isNull(this.options.parent)) {
         result = this.options.id;
     } else {
